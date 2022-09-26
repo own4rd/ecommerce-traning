@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}}" role="alert">
+            {{message}}
+      </div>
+    {% endfor %}
+
+    <!-- + VISTOS -->
+    <div id="produtos-destaque" class="container pb-5">
+        <h3>produtos recentes</h3>
+        <div class="row">
+            {% for produto in produtos %}
+            <div class="col-md-3">
+                <a href="#">
+                    <div class="card">
+                        <img src="{% static 'img/img.jpg' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{produto}}</h5>
+                            <p class="card-text">
+                            <p class="old-price">
+                                R$1.798,00
+                                <span class="badge text-bg-success">10%</span>
+                            </p>
+                            <p class="new-price">{{produto.preco}}</p>
+                            <p class="info-price">em 1x no cartão</p>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+    <!--  / + VISTOS -->
+
+    <!-- OFERTA -->
+
+    <div id="produtos-promocoes" class="container pt-5">
+        <h3>produtos mais vistos no ecommerce</h3>
+        <div class="row">
+            <div class="col-md-3">
+                <a href="#">
+                    <div class="card">
+                        <div class="cashback d-flex">
+                            30% de Cash Back
+                        </div>
+                        <img src="{% static 'img/img.jpg' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">smartwatch lore ipsum ipsum lore</h5>
+                            <p class="card-text">
+                            <p class="new-price">R$1609,00</p>
+                            <p class="info-price">em 1x no cartão</p>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="cashback d-flex">
+                        30% de Cash Back
+                    </div>
+                    <img src="{% static 'img/img.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">smartwatch lore ipsum ipsum lore</h5>
+                        <p class="card-text">
+                        <p class="new-price">R$1609,00</p>
+                        <p class="info-price">em 1x no cartão</p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="cashback d-flex">
+                        30% de Cash Back
+                    </div>
+                    <img src="{% static 'img/img.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">smartwatch lore ipsum ipsum lore</h5>
+                        <p class="card-text">
+                        <p class="new-price">R$1609,00</p>
+                        <p class="info-price">em 1x no cartão</p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="cashback d-flex">
+                        30% de Cash Back
+                    </div>
+                    <img src="{% static 'img/img.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">smartwatch lore ipsum ipsum lore</h5>
+                        <p class="card-text">
+                        <p class="new-price">R$1609,00</p>
+                        <p class="info-price">em 1x no cartão</p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-3">
+                <a href="#">
+                    <div class="card">
+                        <div class="cashback d-flex">
+                            30% de Cash Back
+                        </div>
+                        <img src="{% static 'img/img.jpg' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">smartwatch lore ipsum ipsum lore</h5>
+                            <p class="card-text">
+                            <p class="new-price">R$1609,00</p>
+                            <p class="info-price">em 1x no cartão</p>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="cashback d-flex">
+                        30% de Cash Back
+                    </div>
+                    <img src="{% static 'img/img.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">smartwatch lore ipsum ipsum lore</h5>
+                        <p class="card-text">
+                        <p class="new-price">R$1609,00</p>
+                        <p class="info-price">em 1x no cartão</p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="cashback d-flex">
+                        30% de Cash Back
+                    </div>
+                    <img src="{% static 'img/img.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">smartwatch lore ipsum ipsum lore</h5>
+                        <p class="card-text">
+                        <p class="new-price">R$1609,00</p>
+                        <p class="info-price">em 1x no cartão</p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="cashback d-flex">
+                        30% de Cash Back
+                    </div>
+                    <img src="{% static 'img/img.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">smartwatch lore ipsum ipsum lore</h5>
+                        <p class="card-text">
+                        <p class="new-price">R$1609,00</p>
+                        <p class="info-price">em 1x no cartão</p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /OFERTA -->
+{% endblock %}
