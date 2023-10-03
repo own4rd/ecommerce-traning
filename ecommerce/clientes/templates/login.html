@@ -5,7 +5,13 @@
 
 <div class="container">
     <div class="row">
-        <h3>Criar Novo Usuário</h3>
+        <h3>Entrar</h3>
+
+        {% for message in messages %}
+            <div class="alert alert-{{message.tags}}" role="alert">
+                {{message}}
+            </div>
+        {% endfor %}
         <form class="row g-3" method="post">
             {% csrf_token %}
             <div class="col-md-6">

@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
-{% load static %}
+{% block title %}
+    Cadastrar Cliente
+{% endblock %}
 {% block content %}
-
-
 <div class="container">
     <div class="row">
         <h3>Criar Novo Usuário</h3>
+        {% for message in messages %}
+            <div class="alert alert-{{message.tags}}" role="alert">
+                {{message}}
+            </div>
+        {% endfor %}
         <form class="row g-3" method="post">
             {% csrf_token %}
             <div class="col-md-6">
@@ -15,10 +20,6 @@
             <div class="col-md-6">
                 <label for="inputPassword4" class="form-label">Senha</label>
                 <input type="password" class="form-control" id="password" name="password">
-            </div>
-            <div class="col-12">
-                <label for="inputAddress" class="form-label">Usuário</label>
-                <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuário">
             </div>
             <div class="col-12">
                 <button type="submit" class="btn btn-primary">Criar</button>

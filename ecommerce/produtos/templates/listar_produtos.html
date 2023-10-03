@@ -2,29 +2,32 @@
 {% load static %}
 {% block content %}
 
-    {% for message in messages %}
-        <div class="alert alert-{{message.tags}}" role="alert">
-            {{message}}
-      </div>
-    {% endfor %}
-
     <!-- + VISTOS -->
     <div id="produtos-destaque" class="container pb-5">
-        <h3>produtos recentes</h3>
+
+        {% for message in messages %}
+            <div class="alert alert-{{message.tags}}" role="alert">
+                {{message}}
+            </div>
+        {% endfor %}
+        <h3>Produtos Recentes</h3>
+        <hr>
         <div class="row">
-            {% for produto in produtos %}
+            {% for produto in produtos_recentes %}
             <div class="col-md-3">
                 <a href="#">
                     <div class="card">
-                        <img src="{% static 'img/img.jpg' %}" class="card-img-top" alt="...">
-                        <div class="card-body">
+                        <img src="{{ produto.imagem.url }}" class="card-img-top" alt="...">
+                        <div class="card-body" style="min-height: 180px">
                             <h5 class="card-title">{{produto}}</h5>
                             <p class="card-text">
+                            {% if produto.discount != 0 %}
                             <p class="old-price">
-                                R$1.798,00
-                                <span class="badge text-bg-success">10%</span>
+                                R${{ produto.preco }}
+                                <span class="badge text-bg-success">{{produto.discount}}%</span>
                             </p>
-                            <p class="new-price">{{produto.preco}}</p>
+                            {% endif %}
+                            <p class="new-price">R$ {{produto.discounted_price}}</p>
                             <p class="info-price">em 1x no cartão</p>
                             </p>
                         </div>
@@ -40,134 +43,28 @@
     <!-- OFERTA -->
 
     <div id="produtos-promocoes" class="container pt-5">
-        <h3>produtos mais vistos no ecommerce</h3>
+        <h3>Roupas</h3>
+        <hr>
         <div class="row">
+            {% for roupa in roupas %}
             <div class="col-md-3">
                 <a href="#">
                     <div class="card">
                         <div class="cashback d-flex">
                             30% de Cash Back
                         </div>
-                        <img src="{% static 'img/img.jpg' %}" class="card-img-top" alt="...">
+                        <img src="{{ roupa.imagem.url }}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">smartwatch lore ipsum ipsum lore</h5>
+                            <h5 class="card-title">{{ roupa.nome }}</h5>
                             <p class="card-text">
-                            <p class="new-price">R$1609,00</p>
-                            <p class="info-price">em 1x no cartão</p>
+                            <p class="new-price">R$ {{ roupa.discounted_price }}</p>
+                            <p class="info-price">em 12x no cartão</p>
                             </p>
                         </div>
                     </div>
                 </a>
             </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="cashback d-flex">
-                        30% de Cash Back
-                    </div>
-                    <img src="{% static 'img/img.jpg' %}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">smartwatch lore ipsum ipsum lore</h5>
-                        <p class="card-text">
-                        <p class="new-price">R$1609,00</p>
-                        <p class="info-price">em 1x no cartão</p>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="cashback d-flex">
-                        30% de Cash Back
-                    </div>
-                    <img src="{% static 'img/img.jpg' %}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">smartwatch lore ipsum ipsum lore</h5>
-                        <p class="card-text">
-                        <p class="new-price">R$1609,00</p>
-                        <p class="info-price">em 1x no cartão</p>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="cashback d-flex">
-                        30% de Cash Back
-                    </div>
-                    <img src="{% static 'img/img.jpg' %}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">smartwatch lore ipsum ipsum lore</h5>
-                        <p class="card-text">
-                        <p class="new-price">R$1609,00</p>
-                        <p class="info-price">em 1x no cartão</p>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-2">
-            <div class="col-md-3">
-                <a href="#">
-                    <div class="card">
-                        <div class="cashback d-flex">
-                            30% de Cash Back
-                        </div>
-                        <img src="{% static 'img/img.jpg' %}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">smartwatch lore ipsum ipsum lore</h5>
-                            <p class="card-text">
-                            <p class="new-price">R$1609,00</p>
-                            <p class="info-price">em 1x no cartão</p>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="cashback d-flex">
-                        30% de Cash Back
-                    </div>
-                    <img src="{% static 'img/img.jpg' %}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">smartwatch lore ipsum ipsum lore</h5>
-                        <p class="card-text">
-                        <p class="new-price">R$1609,00</p>
-                        <p class="info-price">em 1x no cartão</p>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="cashback d-flex">
-                        30% de Cash Back
-                    </div>
-                    <img src="{% static 'img/img.jpg' %}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">smartwatch lore ipsum ipsum lore</h5>
-                        <p class="card-text">
-                        <p class="new-price">R$1609,00</p>
-                        <p class="info-price">em 1x no cartão</p>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="cashback d-flex">
-                        30% de Cash Back
-                    </div>
-                    <img src="{% static 'img/img.jpg' %}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">smartwatch lore ipsum ipsum lore</h5>
-                        <p class="card-text">
-                        <p class="new-price">R$1609,00</p>
-                        <p class="info-price">em 1x no cartão</p>
-                        </p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
     <!-- /OFERTA -->

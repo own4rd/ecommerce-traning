@@ -5,5 +5,8 @@ from django.contrib import messages
 from produtos.models.produto import Produto
 
 def listar_produtos(request):
-    produtos = Produto.objects.all().order_by('-criado_em')[:4]
-    return render(request, 'listar_produtos.html', {'produtos': produtos})
+    produtos_recentes = Produto.objects.all().order_by('-criado_em')[:4]
+    roupas = Produto.objects.filter(categoria__nome='Roupa')
+    return render(request, 'listar_produtos.html', 
+                  {'produtos_recentes': produtos_recentes,
+                   'roupas': roupas})
