@@ -15,24 +15,7 @@
         <div class="row">
             {% for produto in produtos_recentes %}
             <div class="col-md-3">
-                <a href="#">
-                    <div class="card">
-                        <img src="{{ produto.imagem.url }}" class="card-img-top" alt="...">
-                        <div class="card-body" style="min-height: 180px">
-                            <h5 class="card-title">{{produto}}</h5>
-                            <p class="card-text">
-                            {% if produto.discount != 0 %}
-                            <p class="old-price">
-                                R${{ produto.preco }}
-                                <span class="badge text-bg-success">{{produto.discount}}%</span>
-                            </p>
-                            {% endif %}
-                            <p class="new-price">R$ {{produto.discounted_price}}</p>
-                            <p class="info-price">em 1x no cartão</p>
-                            </p>
-                        </div>
-                    </div>
-                </a>
+                {% include 'partials/produto/card_produto.html' %}
             </div>
             {% endfor %}
             
@@ -46,23 +29,9 @@
         <h3>Roupas</h3>
         <hr>
         <div class="row">
-            {% for roupa in roupas %}
+            {% for roupa in roupas %}            
             <div class="col-md-3">
-                <a href="#">
-                    <div class="card">
-                        <div class="cashback d-flex">
-                            30% de Cash Back
-                        </div>
-                        <img src="{{ roupa.imagem.url }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ roupa.nome }}</h5>
-                            <p class="card-text">
-                            <p class="new-price">R$ {{ roupa.discounted_price }}</p>
-                            <p class="info-price">em 12x no cartão</p>
-                            </p>
-                        </div>
-                    </div>
-                </a>
+                {% include 'partials/produto/card_produto.html' with produto=roupa %}
             </div>
             {% endfor %}
         </div>

@@ -1,11 +1,13 @@
 from django.urls import path
+from django.contrib.auth.views import LogoutView
 
-from clientes.views.clientes_view import criar_cliente, login_user, logout_user
+from clientes.views.clientes_view import UserCreateView, UserLoginView
+
 
 app_name = 'clientes'
 
 urlpatterns = [
-    path('cadastrar/', criar_cliente, name="criar_cliente"),
-    path('entrar/', login_user, name="login"),
-    path('sair/', logout_user, name="logout"),
+    path('cadastrar/', UserCreateView.as_view(), name="criar_cliente"),
+    path('entrar/', UserLoginView.as_view(), name="login"),
+    path('sair/', LogoutView.as_view(next_page='/'), name="logout"),
 ]

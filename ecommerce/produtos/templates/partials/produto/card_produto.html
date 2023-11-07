@@ -1,0 +1,18 @@
+<a href="{% url 'produtos:detalhar_produto' produto.id %}">
+    <div class="card">
+        <img src="{{ produto.imagem.url }}" class="card-img-top" alt="...">
+        <div class="card-body" style="min-height: 180px">
+            <h5 class="card-title">{{produto}}</h5>
+            <p class="card-text">
+            {% if produto.discount != 0 %}
+            <p class="old-price">
+                R${{ produto.preco }}
+                <span class="badge text-bg-success">{{produto.discount}}%</span>
+            </p>
+            {% endif %}
+            <p class="new-price">R$ {{produto.discounted_price}}</p>
+            <p class="info-price">em 1x no cartão</p>
+            </p>
+        </div>
+    </div>
+</a>
