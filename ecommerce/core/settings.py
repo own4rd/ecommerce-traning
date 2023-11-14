@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'produtos',
-    'clientes'
+    'clientes',
+    'carts'
 ]
 
 MIDDLEWARE = [
@@ -144,3 +145,8 @@ MESSAGE_TAGS = {
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+from django.urls import reverse_lazy
+
+LOGIN_URL = reverse_lazy('clientes:login')

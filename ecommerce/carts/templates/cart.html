@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}
+    Carrinho de Compras
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                </tr>
+            </thead>
+            {% for item in cart.order_set.all %}
+               <tr>
+                <td>
+                    <img width="45" height="45" src="{{ item.product.imagem.url }}" alt="">
+                </td>
+                <td>{{ item.product }}</td>
+                <td>{{ item.quantity }}</td>
+               </tr> 
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+{% endblock %}

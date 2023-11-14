@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}
+    Cadastrar Cliente
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h3>Criar Novo Usuário</h3>
+        {% for message in messages %}
+            <div class="alert alert-{{message.tags}}" role="alert">
+                {{message}}
+            </div>
+        {% endfor %}
+        <form class="row g-3" method="post">
+            {% csrf_token %}
+            <div class="col-12">
+                {{form.as_p}}
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

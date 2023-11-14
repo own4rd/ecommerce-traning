@@ -1,7 +1,6 @@
 from typing import Any
-from django.shortcuts import render
+from django.db.models.query import QuerySet
 from django.views.generic import ListView, DetailView
-from django.contrib import messages
 
 from produtos.models.produto import Produto
 

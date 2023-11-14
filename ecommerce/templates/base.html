@@ -30,6 +30,7 @@
                     {% if user.is_authenticated %}
                         <p>
                             Olá {{ user.email }}
+                            <a href="{% url 'clientes:atualizar_cliente' user.id %}">Meu Perfil</a>
                             <a href="{% url 'clientes:logout' %}">Sair</a>
                         </p>
                     {% else %}
